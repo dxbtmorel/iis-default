@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="ui grid">
+    <div class="ten wide column">
+        @Html.Action("Dev", "Directory", new { type = WebApp.Models.SvnDirectoryType.Dev })
+        @Html.Action("Stable", "Directory", new { type = WebApp.Models.SvnDirectoryType.Stable })
+        @Html.Action("Old", "Directory", new { type = WebApp.Models.SvnDirectoryType.Old })
+        @Html.Action("Project", "Directory", new { type = WebApp.Models.SvnDirectoryType.Project })
+    </div>
+    <div id="svn-directory-info" class="six wide column">
+        @Html.Action("Edit", "Directory")
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿<div class="ui basic segment">
+    @if (!string.IsNullOrEmpty(Model.Name))
+    {
+        <div class="ui fluid card">
+            <div class="content">
+                <div class="header">@Model.Name</div>
+                <div class="meta">@Model.Type</div>
+                <div class="description"></div>
+            </div>
+            @if (Model.HasWebConfig)
+            {
+                <div class="content">
+                    <h4 class="ui sub header">Web.Config</h4>
+                    <div class="ui list">
+                        <div class="item">
+                            <div class="ui black horizontal label">SQL Server</div>
+                            @Model.SqlServer
+                        </div>
+                        <div class="item">
+                            <div class="ui blue horizontal label">Database</div>
+                            @Model.Database
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.ListFiles.Count > 0)
+            {
+                <div class="content">
+                    <h4 class="ui sub header">Files</h4>
+                </div>
+                <div class="ui list">
+                    @foreach (string file in Model.ListFiles)
+                    {
+                        <div class="item">
+                            @file
+                        </div>
+                    }
+                </div>
+            }
+            @*<div class="content">
+                <h4 class="ui sub header">Actions</h4>
+            </div>*@
+        </div>
+    }
+</div>

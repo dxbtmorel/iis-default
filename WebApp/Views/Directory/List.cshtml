@@ -1,0 +1,27 @@
+﻿@if (@Model.Count > 0)
+{
+    <section class="ui basic segment">
+        <h2 class="ui header">
+            @*<i class="icon"></i>*@
+            <div class="content">@ViewBag.Title</div>
+        </h2>
+        <div class="ui middle align list">
+            @foreach (var item in @Model)
+            {
+                <div class="item" data-name="@item.Name">
+                    <i class="edit icon svn-directory-button"></i>
+                    <div class="content">
+                        @if (item.HasWebConfig)
+                        {
+                            <a href="@item.Name">@item.Name</a>
+                        }
+                        else
+                        {
+                            @item.Name
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
